@@ -13,4 +13,4 @@ while True:
     # end of file is reached 
     if not line: 
         break
-    print("Line {}: {}\nSize: {}".format(count, line.strip(), size))
+    print("Line {}: {}\nSize: {}\n".format(count, line.strip(), size))
