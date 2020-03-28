@@ -1,7 +1,6 @@
 import linecache
 import sys
 
-# -- Remove duplicates lines --
 lines_seen = set() # lines already seen
 
 count = 0
