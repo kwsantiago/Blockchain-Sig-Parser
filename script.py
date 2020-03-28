@@ -7,7 +7,7 @@ while True:
     count += 1
   
     # Get next line from file 
-    line = linecache.getline('LTC-Hashes.log', count)
+    line = linecache.getline('test.log', count)
     size = sys.getsizeof(line)
     # if line is empty 
     # end of file is reached 
