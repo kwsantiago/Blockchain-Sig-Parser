@@ -1,20 +1,14 @@
 import linecache
 import sys
 
-lines_seen = set() # lines already seen
-
 count = 0
 
-# -- Print lines --
+# Print lines
 while True:
     count += 1
     # Get next line from file 
-    line = linecache.getline('test.log', count)
+    line = linecache.getline('LTC-Hashes.log', count)
     size = sys.getsizeof(line)
-    # if line is empty 
-    # end of file is reached 
-    if not line:
+    if not line: # if line is empty, end of file is reached 
         break
-    if line not in lines_seen: # not a duplicate
-        print("Line {}: {}\nSize: {}\n".format(count, line.strip(), size))
-        lines_seen.add(line)
+    print("Line {}: {}\nSize: {}\n".format(count, line.strip(), size))
