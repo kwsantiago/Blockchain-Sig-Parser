@@ -2,21 +2,25 @@ import linecache
 import sys
 
 # -- Remove duplicates lines --
-pubkeys_seen = set() # lines already seen
+pubkeys_seen = set() # public keys already seen
+sigs_seen = set() # signatures already seen
 
-count = 0
+lineNum = 0
 
 # Print lines
 while True:
-    count += 1
-    # Get next line from file 
-    line = linecache.getline(sys.argv[1], count)
-    list = line.strip().split()
+    lineNum += 1
+    line = linecache.getline(sys.argv[1], lineNum) # Get next line from file 
     if not line: # if line is empty, end of file is reached 
         break
-    if list[2] not in pubkeys_seen:
-        pubkeys_seen.add(list[2])
+    lineList = line.strip().split() # strip '\n' and put each string into an element of an array
+    if lineList[2] not in pubkeys_seen: # if line's pubkey has not been seen
+        pubkeys_seen.add(lineList[2]) # add it to pubkeys_seen
         continue
-    elif list[2] in pubkeys_seen:
-        print("Line {} Sig: {}".format(count, list[1]))
-        print("Line {} Pubkey: {}\n".format(count, list[2]))
+    if lineList[1] not in sigs_seen: # if line's signature has not been seen
+        sigs_seen.add(lineList[1]) # add it to sigs_seen
+        continue
+    elif lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print
+        print("Amount of sigs: {}".format(len(sigs_seen)))
+        print("Line {} Sig: {}".format(lineNum, lineList[1]))
+        print("Line {} Pubkey: {}\n".format(lineNum, lineList[2]))
