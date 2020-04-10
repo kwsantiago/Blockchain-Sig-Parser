@@ -1,4 +1,5 @@
 import linecache
+import sys
 
 count = 0
 
@@ -6,7 +7,7 @@ count = 0
 while True:
     count += 1
     # Get next line from file 
-    line = linecache.getline('LTC-Hashes.log', count)
+    line = linecache.getline(sys.argv[1], count)
     list = line.strip().split()
     if not line: # if line is empty, end of file is reached 
         break
