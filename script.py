@@ -1,6 +1,9 @@
 import linecache
 import sys
 
+# -- Remove duplicates lines --
+pubkeys_seen = set() # lines already seen
+
 count = 0
 
 # Print lines
@@ -11,5 +14,9 @@ while True:
     list = line.strip().split()
     if not line: # if line is empty, end of file is reached 
         break
-    print("Line {} Sig: {}".format(count, list[1]))
-    print("Line {} Pubkey: {}\n".format(count, list[2]))
+    if list[2] not in pubkeys_seen:
+        pubkeys_seen.add(list[2])
+        continue
+    elif list[2] in pubkeys_seen:
+        print("Line {} Sig: {}".format(count, list[1]))
+        print("Line {} Pubkey: {}\n".format(count, list[2]))
