@@ -5,9 +5,6 @@ import sys
 # line[2] is the public key
 
 def getLines_WithSig():
-    # -- Remove duplicates lines --
-    pubkeys_seen = set() # public keys already seen
-
     lineNum = 0
 
     file = open("output_withSig.log", "w")
@@ -21,13 +18,7 @@ def getLines_WithSig():
         if not line: # if line is empty, end of file is reached 
             break
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
-        if lineList[2] not in pubkeys_seen: # if line's pubkey has not been seen
-            if(sys.argv[2] == lineList[2]): # if line's public key and user entered public key match
-                pubkeys_seen.add(lineList[2]) # add it to pubkeys_seen
-                continue
-            else:
-                continue
-        elif lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print
+        if(lineList[2] == sys.argv[2]): # else if line's pubkey has been seen, print
             print("Line {} Sig: {}".format(lineNum, lineList[1]))
             file.write("Line {} Sig: {}\n".format(lineNum, lineList[1]))
 
