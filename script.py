@@ -42,10 +42,7 @@ def getLines_NoSig():
         if lineList[2] not in pubkeys_seen: # if line's pubkey has not been seen
             pubkeys_seen.add(lineList[2]) # add it to pubkeys_seen
             continue
-        elif lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print
-            #print("Line {} Sig: {}".format(lineNum, lineList[1]))
-            #print("Line {} Pubkey: {}\n".format(lineNum, lineList[2]))
-            #file.write("Line {} Sig: {}\n".format(lineNum, lineList[1]))
+        if lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print to file
             file.write("{}\n".format(lineList[2]))
 
     file.close
