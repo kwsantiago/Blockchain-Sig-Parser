@@ -7,7 +7,7 @@ import sys
 def getLines_WithSig():
     lineNum = 0
 
-    file = open("output_withSig.log", "w")
+    file = open("signatures.log", "w")
     file.write("Pubkey: {}\n\n".format(sys.argv[2]))
     print("Pubkey: {}\n\n".format(sys.argv[2]))
 

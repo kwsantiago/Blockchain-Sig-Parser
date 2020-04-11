@@ -4,7 +4,7 @@ Simple Python script that parses signatures from the blockchain.
 **How to Use**  
 1. First run this command to get the 10 public keys with the most signatures used of that file:  
 ```./parseSigs.sh test.log```
-2. Then run this command to get an ```output_withSig.log``` that contains all the signatures signed by a specific public key.  
+2. Then run this command to get an ```signatures.log``` that contains all the signatures signed by a specific public key.  
 ```./parseSigs.sh test.log pubkey```
 
 This can be tested on test.log which are signatures collected from the Bitcoin blockchain.  
