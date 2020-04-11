@@ -1,8 +1,8 @@
 import linecache
 import sys
 
-# line[1] is the signature
-# line[2] is the public key
+# lineList[1] is the signature
+# lineList[2] is the public key
 
 def getLines_WithSig():
     lineNum = 0
