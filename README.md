@@ -1,5 +1,5 @@
 # Blockchain Signature Parser
-Simple Python script that parses signatures in each block to research blockchains. 
+Simple Python script that parses signatures from the blockchain. 
 
 **How to Use**  
 1. First run this command to get an ```output.log``` that contains all the public keys in the file:  
