@@ -18,7 +18,7 @@ def getLines_WithSig():
         if not line: # if line is empty, end of file is reached 
             break
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
-        if(lineList[2] == sys.argv[2]): # if line's pubkey and user's pubkey matchesm, print
+        if(lineList[2] == sys.argv[2]): # if line's pubkey and user's pubkey matches, print
             print("Line {} Sig: {}".format(lineNum, lineList[1]))
             file.write("Line {} Sig: {}\n".format(lineNum, lineList[1]))
 
