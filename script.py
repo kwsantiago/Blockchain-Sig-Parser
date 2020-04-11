@@ -1,5 +1,7 @@
 import linecache
 import sys
+import os.path
+from os import path
 
 # lineList[1] is the signature
 # lineList[2] is the public key
@@ -9,7 +11,7 @@ def getLines_WithSig():
 
     file = open("signatures.log", "w")
     file.write("Pubkey: {}\n\n".format(sys.argv[2]))
-    print("Pubkey: {}\n\n".format(sys.argv[2]))
+    print("\nPubkey: {}\n".format(sys.argv[2]))
 
     # Print lines
     while True:
@@ -48,8 +50,13 @@ def getLines_NoSig():
     file.close
 
 def main():
-    if(len(sys.argv) == 3):
-        getLines_WithSig()
+    if(path.isfile(sys.argv[1])): # is this a valid file?
+        if(len(sys.argv) == 2):
+            getLines_NoSig()
+        elif(len(sys.argv) == 3):
+            getLines_WithSig()
+        else:
+            print("Error: Invalid Input")
     else:
-        getLines_NoSig()
+        print("Error: Invalid Input")
 main()
