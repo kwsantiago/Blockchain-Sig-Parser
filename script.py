@@ -43,8 +43,7 @@ def getLines_NoSig():
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
         if lineList[2] not in pubkeys_seen: # if line's pubkey has not been seen
             pubkeys_seen.add(lineList[2]) # add it to pubkeys_seen
-            continue
-        if lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print pubkey to file
+        elif lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print pubkey to file
             file.write("{}\n".format(lineList[2]))
 
     file.close
