@@ -8,5 +8,5 @@ Simple Python script that parses signatures from the blockchain.
 ```./parseSigs.sh test.log pubkey```
 
 This can be tested on test.log which are signatures collected from the Bitcoin blockchain.  
-You will notice after finishing step 2 on this test file that the public key ```047146F0E0FCB3139947CF0BEB870FE251930CA10D4545793D31033E801B5219ABF56C11A3CF3406CA590E4C14B0DAB749D20862B3ADC4709153C280C2A78BE10C``` has the most signatures signed with the same public key within this file. Use this same public key in step 3 in this manner:  
+You will notice after finishing step 2 on this test file that the public key ```047146F0E0FCB3139947CF0BEB870FE251930CA10D4545793D31033E801B5219ABF56C11A3CF3406CA590E4C14B0DAB749D20862B3ADC4709153C280C2A78BE10C``` has the most signatures signed with the same public key within this file. Use this same public key in step 2 in this manner:  
 ```./parseSigs.sh test.log 047146F0E0FCB3139947CF0BEB870FE251930CA10D4545793D31033E801B5219ABF56C11A3CF3406CA590E4C14B0DAB749D20862B3ADC4709153C280C2A78BE10C```
