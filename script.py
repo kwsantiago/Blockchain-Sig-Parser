@@ -27,7 +27,6 @@ def getLines_WithSig():
     file.close
 
 def getLines_NoSig():
-    # -- Remove duplicates lines --
     pubkeys_seen = set() # public keys already seen
 
     lineNum = 0
