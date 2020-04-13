@@ -20,7 +20,7 @@ def getLines_WithSig():
             break
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
         if(lineList[2] == sys.argv[2]): # if line's pubkey and user's pubkey matches, print signatures of that pubkey to the file
-            file.write("{}\n".format(line))
+            file.write("{}".format(line))
 
     file.close
     print("Success! Check signatures.log for your ouput.\n")
