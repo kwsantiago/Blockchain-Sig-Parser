@@ -23,7 +23,7 @@ def getLines_WithSig():
             file.write("{}\n".format(line))
 
     file.close
-    print("Success! Check signatures.log for your ouput.")
+    print("Success! Check signatures.log for your ouput.\n")
 
 def getLines_NoSig():
     pubkeys_seen = set() # public keys already seen
@@ -32,6 +32,7 @@ def getLines_NoSig():
 
     file = open("output.log", "w")
 
+    print("\nThe public keys with the most corresponding signatures:\n")
     # Print lines
     while True:
         lineNum += 1
