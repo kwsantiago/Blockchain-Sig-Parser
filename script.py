@@ -53,12 +53,12 @@ def main():
             try:
                 getLines_NoSig()
             except:
-                print("An error has occured or input invalid.")
+                print("An error has occurred or input invalid.")
         elif(len(sys.argv) == 3):
             try:
                 getLines_WithSig()
             except:
-                print("An error has occured or input invalid.")
+                print("An error has occurred or input invalid.")
         else:
             print("Error: Invalid Input")
     else:
