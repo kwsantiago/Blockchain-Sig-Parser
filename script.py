@@ -10,8 +10,7 @@ def getLines_WithSig():
     lineNum = 0
 
     file = open("signatures.log", "w")
-    file.write("Pubkey: {}\n\n".format(sys.argv[2]))
-    print("\nPubkey: {}\n".format(sys.argv[2]))
+    print("\nGrabbing Signatures of Public Key: {}\n".format(sys.argv[2]))
 
     # Print lines
     while True:
@@ -20,11 +19,11 @@ def getLines_WithSig():
         if not line: # if line is empty, end of file is reached 
             break
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
-        if(lineList[2] == sys.argv[2]): # if line's pubkey and user's pubkey matches, print signatures of that pubkey
-            print("Line {} Sig: {}".format(lineNum, lineList[1]))
-            file.write("Line {} Sig: {}\n".format(lineNum, lineList[1]))
+        if(lineList[2] == sys.argv[2]): # if line's pubkey and user's pubkey matches, print signatures of that pubkey to the file
+            file.write("{}\n".format(line))
 
     file.close
+    print("Success! Check signatures.log for your ouput.")
 
 def getLines_NoSig():
     pubkeys_seen = set() # public keys already seen
