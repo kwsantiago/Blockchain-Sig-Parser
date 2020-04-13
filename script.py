@@ -50,9 +50,15 @@ def getLines_NoSig():
 def main():
     if(path.isfile(sys.argv[1])): # is this a valid file?
         if(len(sys.argv) == 2):
-            getLines_NoSig()
+            try:
+                getLines_NoSig()
+            except:
+                print("An error has occured or input invalid.")
         elif(len(sys.argv) == 3):
-            getLines_WithSig()
+            try:
+                getLines_WithSig()
+            except:
+                print("An error has occured or input invalid.")
         else:
             print("Error: Invalid Input")
     else:
