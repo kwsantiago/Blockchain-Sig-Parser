@@ -28,7 +28,7 @@ def getLines_NoSig(lineNum):
 
     file = open("output.log", "w")
 
-    print("\nThe public keys with the most corresponding signatures:\n")
+    print("\nThe public keys with the amount of corresponding signatures:\n")
     # Print lines
     while True:
         line = linecache.getline(sys.argv[1], lineNum) # Get next line from file 
