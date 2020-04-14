@@ -5,5 +5,4 @@ This script outputs signatures corresponding to public keys from raw blockchain 
 -Run this command to get a folder called ```Signatures``` that contains the signatures of each corresponding public key.  ```./parseSigs.sh test.log```  
 
 This can be tested on test.log which are raw signatures collected from the Bitcoin blockchain.  
-If you want to use your own files, 
-merely replace test.log with your file that has raw blockchain signatures.
+If you want to use your own files, merely replace test.log with your file that has raw blockchain signatures.
