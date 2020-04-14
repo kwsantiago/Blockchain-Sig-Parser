@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ $# == 1 ] # if only 1 argument
 then
     python3 script.py $1 # execute the script with the first argument (.log file)
@@ -8,6 +9,8 @@ then
 elif [ $# == 2 ] # if 2 arguments
 then
     python3 script.py $1 $2 # execute the script with the first arg (.log file) and second arg (pubkey)
+    numLines=$(cat signatures.log | wc -l)
+    mv signatures.log signatures.$numLines
 else
     echo Error: Invalid input
 fi
