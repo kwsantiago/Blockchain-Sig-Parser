@@ -23,11 +23,11 @@ getPubKeysInRange(){
 }
 
 outputSigs(){
+    python3 script.py $1 $2 # execute the script with the first arg (.log file) and second arg (pubkey)
     if [ ! -d "./Signatures/$2"  ] 
     then
         mkdir ./Signatures/$2 # Create Signatures folder if it doesn't exist
     fi
-    python3 script.py $1 $2 # execute the script with the first arg (.log file) and second arg (pubkey)
     numLines=$(cat signatures.log | wc -l)
     mv signatures.log ./Signatures/$2/signatures.$numLines
 }
