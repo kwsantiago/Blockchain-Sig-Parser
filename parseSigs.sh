@@ -1,8 +1,8 @@
 #!/bin/bash
 
 declare -i numToDisplay=10 # This is the number of public keys to be displayed
-declare -i MIN=100 # All public keys displayed will have more than this value of signatures
-declare -i MAX=200 # All public keys displayed will have less than this value of signatures
+declare -i MIN=1 # All public keys displayed will have more than this value of signatures
+declare -i MAX=10 # All public keys displayed will have less than this value of signatures
 
 if [ $# == 1 ] # if only 1 argument
 then
