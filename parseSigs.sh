@@ -36,6 +36,10 @@ outputSigs(){
 
 if [ $# == 1 ] # if only 1 argument
 then
+    echo What is the Minimum number of signatures a public key should have in order to be parsed?
+    read MIN
+    echo What is the Maximum number of signatures a public key should have in order to be parsed?
+    read MAX
     getPubKeysInRange "$1"
 elif [ $# == 2 ] # if 2 arguments
 then
