@@ -15,8 +15,11 @@ getPubKeysInRange(){
     # This prints the public keys into a file sorted from highest(top) to lowest(bottom)
     sort output.log | uniq -c | sort -rn | awk -v MIN="$MIN" -v MAX="$MAX" '{if($1 >= MIN && $1 <= MAX){{print $2}}}' > pubKeys.log
     # Read each line of pubKeys.log and execute the script using each public key
+    count=$(cat pubKeys.log | wc -l)
     while IFS= read -r line
     do
+        let count-=1
+        echo $count remaining...
         ./parseSigs.sh $1 $line
     done < pubkeys.log
     rm output.log pubkeys.log
