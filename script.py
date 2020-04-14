@@ -21,7 +21,7 @@ def getLines_WithSig(lineNum):
         lineNum += 1
 
     file.close
-    print("Success! Check signatures.log for your ouput.\n")
+    print("Success! Check the /Signatures/ folder for your ouput.\n")
 
 def getLines_NoSig(lineNum):
     pubkeys_seen = set() # public keys already seen
