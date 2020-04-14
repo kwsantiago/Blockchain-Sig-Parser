@@ -7,5 +7,3 @@ This script outputs signatures corresponding to public keys from raw blockchain 
 This can be tested on test.log which are raw signatures collected from the Bitcoin blockchain.  
 If you want to use your own files, 
 merely replace test.log with your file that has raw blockchain signatures.
-
-
