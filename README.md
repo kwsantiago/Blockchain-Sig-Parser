@@ -1,5 +1,7 @@
 # Blockchain Signature Parser
-Simple Python script that parses signatures from the blockchain. 
+Simple Python script that parses signatures from the blockchain.  
+
+-Edit the parseSigs.sh file for certain paramters you might want, such as minumum and maximum signatures for a public key to have, or for a certain amount of public keys to be displayed.  
 
 **How to Use**  
 1. First run this command to get the 10 public keys with the most corresponding signatures:  
