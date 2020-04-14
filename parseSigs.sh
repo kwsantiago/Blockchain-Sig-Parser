@@ -1,6 +1,5 @@
 #!/bin/bash
 
-declare -i numToDisplay=10 # This is the number of public keys to be displayed
 declare -i MIN=1 # All public keys displayed will have more than this value of signatures
 declare -i MAX=10 # All public keys displayed will have less than this value of signatures
 
@@ -27,9 +26,9 @@ getPubKeysInRange(){
 
 outputSigs(){
     python3 script.py $1 $2 # execute the script with the first arg (.log file) and second arg (pubkey)
-    if [ ! -d "./Signatures/$2"  ] 
+    if [ ! -d "./Signatures/$2/"  ] 
     then
-        mkdir ./Signatures/$2 # Create Signatures folder if it doesn't exist
+        mkdir ./Signatures/$2/ # Create Signatures folder if it doesn't exist
     fi
     numLines=$(cat signatures.log | wc -l)
     mv signatures.log ./Signatures/$2/signatures.$numLines
