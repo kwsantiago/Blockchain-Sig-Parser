@@ -19,9 +19,9 @@ getPubKeysInRange(){
     do
         let count-=1
         echo $count remaining...
-        ./parseSigs.sh $1 $line
+        ./parseSigs.sh sigsParsed.log $line
     done < pubkeys.log
-    rm output.log pubkeys.log
+    rm output.log pubkeys.log sigsParsed.log
 }
 
 outputSigs(){

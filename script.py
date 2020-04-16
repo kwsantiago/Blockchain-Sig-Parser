@@ -27,6 +27,7 @@ def getLines_NoSig(lineNum):
     pubkeys_seen = set() # public keys already seen
 
     file = open("output.log", "w")
+    sigsParsed = open("sigsParsed.log", "w")
 
     # Print lines
     while True:
@@ -37,6 +38,7 @@ def getLines_NoSig(lineNum):
         if lineList[2] not in pubkeys_seen: # if line's pubkey has not been seen
             pubkeys_seen.add(lineList[2]) # add it to pubkeys_seen
         elif lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print pubkey to file
+            sigsParsed.write("{}".format(line))
             file.write("{}\n".format(lineList[2]))
         lineNum += 1
 
