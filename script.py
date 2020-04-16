@@ -26,7 +26,7 @@ def getLines_WithSig(lineNum):
 def getLines_NoSig(lineNum):
     pubkeys_seen = set() # public keys already seen
 
-    file = open("output.log", "w")
+    file = open("pubKeys.log", "w")
     sigsParsed = open("sigsParsed.log", "w")
 
     # Print lines
@@ -43,20 +43,55 @@ def getLines_NoSig(lineNum):
         lineNum += 1
 
     file.close
+    sigsParsed.close
+
+def parseSigs(lineNum):
+    pubkeys_seen = set() # public keys already seen
+
+    file = open("pubKeys.log", "r")
+    sigsParsed = open("output.log", "w")
+
+    # Put desired public keys into set
+    while True:
+        lineKeys = linecache.getline("pubKeys.log", lineNum) # Get next line from file 
+        if not lineKeys: # if line is empty, end of file is reached 
+            break
+        if lineKeys.strip() not in pubkeys_seen: # if line's pubkey has not been seen
+            pubkeys_seen.add(lineKeys.strip()) # add it to pubkeys_seen
+        lineNum += 1
+
+    lineNum = 1 # reset counter
+    # Print lines
+    while True:
+        line = linecache.getline("sigsParsed.log", lineNum) # Get next line from file 
+        if not line: # if line is empty, end of file is reached 
+            break
+        lineList = line.strip().split() # strip '\n' and put each string into an element of an array
+        if lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print pubkey to file
+            sigsParsed.write("{}".format(line))
+        lineNum += 1
+
+    file.close
+    sigsParsed.close
 
 def main():
     lineNum = 1
-    if(path.isfile(sys.argv[1])): # is this a valid file?
+    if(len(sys.argv) == 1):
+        try:
+            parseSigs(lineNum)
+        except:
+            print("Parse Sigs: An error has occurred or input invalid.")
+    elif(path.isfile(sys.argv[1])): # is this a valid file?
         if(len(sys.argv) == 2):
             try:
                 getLines_NoSig(lineNum)
             except:
-                print("An error has occurred or input invalid.")
+                print("No Sig: An error has occurred or input invalid.")
         elif(len(sys.argv) == 3):
             try:
                 getLines_WithSig(lineNum)
             except:
-                print("An error has occurred or input invalid.")
+                print("With Sig: An error has occurred or input invalid.")
         else:
             print("Error: Invalid Input")
     else:
