@@ -10,18 +10,20 @@ fi
 
 getPubKeysInRange(){
     python3 script.py $1 # execute the script with the first argument (.log file)
-    #sort output.log | uniq -c | sort -rn | head -n 10 # OPTIONAL: print top 10 public keys with most sigs
-    # This prints the public keys into a file sorted from highest(top) to lowest(bottom)
-    sort output.log | uniq -c | sort -rn | awk -v MIN="$MIN" -v MAX="$MAX" '{if($1 >= MIN && $1 <= MAX){{print $2}}}' > pubKeys.log
+    # Sort public keys into a file sorted from highest(top) to lowest(bottom)
+    sort pubKeys.log | uniq -c | sort -rn | awk -v MIN="$MIN" -v MAX="$MAX" '{if($1 >= MIN && $1 <= MAX){{print $2}}}' | sponge pubKeys.log
+    # Parse signatures to only contain the public keys we're looking for 
+    python3 script.py
+    rm sigsParsed.log
     # Read each line of pubKeys.log and execute the script using each public key
     count=$(cat pubKeys.log | wc -l)
     while IFS= read -r line
     do
         let count-=1
         echo $count remaining...
-        ./parseSigs.sh sigsParsed.log $line
+        ./parseSigs.sh output.log $line
     done < pubkeys.log
-    rm output.log pubkeys.log sigsParsed.log
+    rm pubKeys.log output.log
 }
 
 outputSigs(){
