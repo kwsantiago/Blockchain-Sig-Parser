@@ -45,7 +45,7 @@ def getLines_NoSig(lineNum):
     file.close
     sigsParsed.close
 
-def parseSigs(lineNum):
+def parseSigs(lineNum): # this function parses the sigsParsed.log file for the public keys defined by the bash script
     pubkeys_seen = set() # public keys already seen
 
     file = open("pubKeys.log", "r")
@@ -67,7 +67,7 @@ def parseSigs(lineNum):
         if not line: # if line is empty, end of file is reached 
             break
         lineList = line.strip().split() # strip '\n' and put each string into an element of an array
-        if lineList[2] in pubkeys_seen: # else if line's pubkey has been seen, print pubkey to file
+        if lineList[2] in pubkeys_seen: # if line's pubkey has been seen, print pubkey to file
             sigsParsed.write("{}".format(line))
         lineNum += 1
 

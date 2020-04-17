@@ -13,11 +13,11 @@ getPubKeysInRange(){
     # Sort public keys into a file sorted from highest(top) to lowest(bottom)
     sort pubKeys.log | uniq -c | sort -rn | awk -v MIN="$MIN" -v MAX="$MAX" '{if($1 >= MIN && $1 <= MAX){{print $2}}}' | sponge pubKeys.log
     # Parse signatures to only contain the public keys we're looking for 
-    python3 script.py
-    rm sigsParsed.log
+    python3 script.py # parse signatures to contain only those defined by user
+    rm sigsParsed.log # delete unneeded parsed file
     # Read each line of pubKeys.log and execute the script using each public key
     count=$(cat pubKeys.log | wc -l)
-    while IFS= read -r line
+    while IFS= read -r line # go through each public key and send it into the python script
     do
         let count-=1
         echo $count remaining...
