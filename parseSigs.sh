@@ -22,7 +22,7 @@ getPubKeysInRange(){
         let count-=1
         echo $count remaining...
         ./parseSigs.sh output.log $line
-    done < pubkeys.log
+    done < pubKeys.log
     rm pubKeys.log output.log
 }
 
