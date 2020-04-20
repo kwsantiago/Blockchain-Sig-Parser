@@ -10,7 +10,7 @@ fi
 
 getPubKeysInRange(){
     python3 script.py $1 # execute the script with the first argument (.log file)
-    # Sort public keys into a file sorted from highest(top) to lowest(bottom)
+    # Sort public keys into a file sorted by MIN and MAX
     sort pubKeys.log | uniq -c | sort -rn | awk -v MIN="$MIN" -v MAX="$MAX" '{if($1 >= MIN && $1 <= MAX){{print $2}}}' | sponge pubKeys.log
     # Parse signatures to only contain the public keys we're looking for 
     python3 script.py # parse signatures to contain only those defined by user
