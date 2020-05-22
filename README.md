@@ -1,6 +1,8 @@
 # Blockchain Signature Parser
 This script outputs signatures corresponding to public keys from raw blockchain signatures.   
 
+It requires the ```sponge``` tool from ```moreutils```.
+
 **How to Use**  
 -Run this command to get a folder called ```Signatures``` that contains the signatures of each corresponding public key.  ```./parseSigs.sh test.log```  
 
