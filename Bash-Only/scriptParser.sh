@@ -16,5 +16,7 @@ do
     if [ $sum -le $end ]
     then
         mv $FILENAME ./1/
+    else
+        continue
     fi
 done
