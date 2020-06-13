@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [ ! -d "./1/"  ]
+filenumber=14
+
+if [ ! -d "../Bins/Bins-$filenumber"  ]
 then
-    mkdir ./1/
+    mkdir ../Bins/Bins-$filenumber
 fi
 
 count=0
@@ -10,13 +12,18 @@ end=103350
 
 for FILENAME in *;
 do
-    numLines=$(wc -l $FILENAME | awk '{print $1}')
-    let count+=$numLines
-    sum=$(($count+$numLines))
-    if [ $sum -le $end ]
+    if [ $count -ge $end ]
     then
-        mv $FILENAME ./1/
-    else
+        let filenumber+=1
+        let count=0
+        if [ ! -d "../Bins/Bins-$filenumber"  ]
+        then
+            mkdir ../Bins/Bins-$filenumber
+        fi
         continue
+    else
+        numLines=$(wc -l $FILENAME | awk '{print $1}')
+        let count+=$numLines
+        mv $FILENAME ../Bins/Bins-$filenumber
     fi
 done
