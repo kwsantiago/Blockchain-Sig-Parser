@@ -8,7 +8,7 @@ then
 fi
 
 count=0
-end=103350
+end=103350 # The purpose is to send the files in batches of 50 folders. The total num of lines divided by 50 gives 103,350. Change if needed.
 
 for FILENAME in *;
 do
