@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filenumber=14
+filenumber=1
 
 if [ ! -d "../Bins/Bins-$filenumber"  ]
 then
