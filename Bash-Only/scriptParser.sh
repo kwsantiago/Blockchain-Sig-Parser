@@ -22,7 +22,6 @@ do
         fi
         continue
     else
-        #numLines=$(wc -l $FILENAME | awk '{print $1}') # Use if naming convention is different
         numLines="${FILENAME##*.}" # Take number of lines from the filename which is the number after the '.'
         let count+=$numLines
         mv $FILENAME ../Bins/Bins-$filenumber
