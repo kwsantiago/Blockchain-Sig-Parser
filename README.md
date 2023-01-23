@@ -1,4 +1,7 @@
 # Blockchain Signature Parser
+
+This script is a tool I made for blockchain security research, specifically for analyzing digital signatures in the blockchain. It parses raw blockchain signatures and outputs the signatures corresponding to public keys. It also checks for any biases in the nonces used in the signatures, which can indicate potential security vulnerabilities in the blockchain. It is a useful tool for identifying potential issues in the blockchain and ensuring its overall security.
+
 Use the ```Bash-Only``` script which is much faster than the Python version.
 
 ### Python Script (Deprecated)
